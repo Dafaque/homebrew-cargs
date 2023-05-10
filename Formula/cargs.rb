@@ -5,23 +5,23 @@
 class Cargs < Formula
   desc "Config file properties to cli arguments converter"
   homepage "https://github.com/Dafaque/cargs"
-  version "1.0.1"
+  version "1.0.2"
   license "TBA"
 
   depends_on "go"
 
   on_macos do
-    if Hardware::CPU.intel?
-      url "https://github.com/Dafaque/cargs/releases/download/v1.0.1/cargs_1.0.1_darwin_amd64.tar.gz"
-      sha256 "b3264b8a0cedca5e3679c122529c24d23c5f8ba9f43973e3bc81f0d4eaaeccbf"
+    if Hardware::CPU.arm?
+      url "https://github.com/Dafaque/cargs/releases/download/v1.0.2/cargs_1.0.2_darwin_arm64.tar.gz"
+      sha256 "ec70f151d2eec65b6c0110657b25b134b9b695991b7af7f4745be7258ca86f8e"
 
       def install
         bin.install "cargs"
       end
     end
-    if Hardware::CPU.arm?
-      url "https://github.com/Dafaque/cargs/releases/download/v1.0.1/cargs_1.0.1_darwin_arm64.tar.gz"
-      sha256 "de29e2b568f16ee4242e26c3d841dfeb46bf7b2a00a73b0a4d1d00927c3c4199"
+    if Hardware::CPU.intel?
+      url "https://github.com/Dafaque/cargs/releases/download/v1.0.2/cargs_1.0.2_darwin_amd64.tar.gz"
+      sha256 "7b164d287e4a006df9f373549dd08cf872ba982f081a9b1749a9cf01e3ff8e53"
 
       def install
         bin.install "cargs"
@@ -30,17 +30,17 @@ class Cargs < Formula
   end
 
   on_linux do
-    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/Dafaque/cargs/releases/download/v1.0.1/cargs_1.0.1_linux_arm64.tar.gz"
-      sha256 "4c584e98e784802aa3e68371691dabddd326b7292ecfeb203d97fc8a7fdcf126"
+    if Hardware::CPU.intel?
+      url "https://github.com/Dafaque/cargs/releases/download/v1.0.2/cargs_1.0.2_linux_amd64.tar.gz"
+      sha256 "e6109fd1d653f0c2da791ae40d834951123e879b922545dbd2749d8d937dbd43"
 
       def install
         bin.install "cargs"
       end
     end
-    if Hardware::CPU.intel?
-      url "https://github.com/Dafaque/cargs/releases/download/v1.0.1/cargs_1.0.1_linux_amd64.tar.gz"
-      sha256 "6981c734db5bcf975828414ec745ee63a9f18882d159b45a459620ab46a1a444"
+    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      url "https://github.com/Dafaque/cargs/releases/download/v1.0.2/cargs_1.0.2_linux_arm64.tar.gz"
+      sha256 "84341ddb65cf36746cff4f31a2bdccf0be8fab0918f11219cf3146503c93fb80"
 
       def install
         bin.install "cargs"
