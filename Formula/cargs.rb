@@ -5,23 +5,23 @@
 class Cargs < Formula
   desc "Config file properties to cli arguments converter"
   homepage "https://github.com/Dafaque/cargs"
-  version "1.0.2"
+  version "1.0.3"
   license "TBA"
 
   depends_on "go"
 
   on_macos do
-    if Hardware::CPU.arm?
-      url "https://github.com/Dafaque/cargs/releases/download/v1.0.2/cargs_1.0.2_darwin_arm64.tar.gz"
-      sha256 "ec70f151d2eec65b6c0110657b25b134b9b695991b7af7f4745be7258ca86f8e"
+    if Hardware::CPU.intel?
+      url "https://github.com/Dafaque/cargs/releases/download/v1.0.3/cargs_1.0.3_darwin_amd64.tar.gz"
+      sha256 "798ebab638476ef7c865764281d5636cfbab65b1b1d6c21a2ad8a2e458b1360a"
 
       def install
         bin.install "cargs"
       end
     end
-    if Hardware::CPU.intel?
-      url "https://github.com/Dafaque/cargs/releases/download/v1.0.2/cargs_1.0.2_darwin_amd64.tar.gz"
-      sha256 "7b164d287e4a006df9f373549dd08cf872ba982f081a9b1749a9cf01e3ff8e53"
+    if Hardware::CPU.arm?
+      url "https://github.com/Dafaque/cargs/releases/download/v1.0.3/cargs_1.0.3_darwin_arm64.tar.gz"
+      sha256 "cbb8cdc1de5e1fa8cdc0ac9ecc2180b49e71f96da224e8c73c377d6cfc4b7833"
 
       def install
         bin.install "cargs"
@@ -30,17 +30,17 @@ class Cargs < Formula
   end
 
   on_linux do
-    if Hardware::CPU.intel?
-      url "https://github.com/Dafaque/cargs/releases/download/v1.0.2/cargs_1.0.2_linux_amd64.tar.gz"
-      sha256 "e6109fd1d653f0c2da791ae40d834951123e879b922545dbd2749d8d937dbd43"
+    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      url "https://github.com/Dafaque/cargs/releases/download/v1.0.3/cargs_1.0.3_linux_arm64.tar.gz"
+      sha256 "b329c783d4c5d752ddf310cc40c653b5377a3371cff81a13b1595a9acbcd77c0"
 
       def install
         bin.install "cargs"
       end
     end
-    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/Dafaque/cargs/releases/download/v1.0.2/cargs_1.0.2_linux_arm64.tar.gz"
-      sha256 "84341ddb65cf36746cff4f31a2bdccf0be8fab0918f11219cf3146503c93fb80"
+    if Hardware::CPU.intel?
+      url "https://github.com/Dafaque/cargs/releases/download/v1.0.3/cargs_1.0.3_linux_amd64.tar.gz"
+      sha256 "77e9a7e28b948c03c9c29705307a325c6ff8a611e3a095674d5a3965ee9a2870"
 
       def install
         bin.install "cargs"
